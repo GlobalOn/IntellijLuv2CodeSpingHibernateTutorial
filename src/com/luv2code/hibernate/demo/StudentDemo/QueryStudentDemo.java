@@ -1,4 +1,4 @@
-package com.luv2code.hibernate.demo;
+package com.luv2code.hibernate.demo.StudentDemo;
 
 import com.luv2code.hibernate.demo.entity.Student;
 import org.hibernate.Session;
@@ -12,7 +12,7 @@ public class QueryStudentDemo {
 
         //create session factory
         SessionFactory sessionFactory = new Configuration().
-                configure("hibernate.cfg.xml").
+                configure("hibernate-student.cfg.xml").
                 addAnnotatedClass(Student.class).
                 buildSessionFactory();
         //create session
@@ -23,19 +23,19 @@ public class QueryStudentDemo {
             session.beginTransaction();
 
             //Query students
-//            List<Student> students = session.createQuery("from Student").getResultList();
-//            //Display the students
-//            displayStudents(students);
-//
-//            //Query students with Last Name = 'Doe'
-//            List<Student> byLastNameStudents = session.createQuery("from Student s where s.lastName = 'Duck' ").getResultList();
-//            displayStudents(byLastNameStudents);
-//
-//            //Query students with lastName 'Doe' of firstName 'Duffy'
-//            List<Student> byLastAndFirstNameStudents = session.
-//                                                        createQuery("from Student s where s.lastName = 'Duck' or s.firstName = 'Neil'").
-//                                                        getResultList();
-//            displayStudents(byLastAndFirstNameStudents);
+            List<Student> students = session.createQuery("from Student").getResultList();
+            //Display the students
+            displayStudents(students);
+
+            //Query students with Last Name = 'Doe'
+            List<Student> byLastNameStudents = session.createQuery("from Student s where s.lastName = 'Duck' ").getResultList();
+            displayStudents(byLastNameStudents);
+
+            //Query students with lastName 'Doe' of firstName 'Duffy'
+            List<Student> byLastAndFirstNameStudents = session.
+                                                        createQuery("from Student s where s.lastName = 'Duck' or s.firstName = 'Neil'").
+                                                        getResultList();
+            displayStudents(byLastAndFirstNameStudents);
 
             //Query students where email ends with LUv.2code
             List<Student> byEmailStudents = session.

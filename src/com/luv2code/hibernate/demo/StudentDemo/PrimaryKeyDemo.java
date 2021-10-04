@@ -1,4 +1,4 @@
-package com.luv2code.hibernate.demo;
+package com.luv2code.hibernate.demo.StudentDemo;
 
 import com.luv2code.hibernate.demo.entity.Student;
 import org.hibernate.Session;
@@ -11,7 +11,7 @@ public class PrimaryKeyDemo {
 
         //create session factory
         SessionFactory sessionFactory = new Configuration().
-                configure("hibernate.cfg.xml").
+                configure("hibernate-student.cfg.xml").
                 addAnnotatedClass(Student.class).
                 buildSessionFactory();
         //create session
