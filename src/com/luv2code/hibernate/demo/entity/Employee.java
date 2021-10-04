@@ -8,8 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "student")
-public class Student {
+@Table(name = "employee")
+public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,24 +19,16 @@ public class Student {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
-    @Column(name = "email")
-    private String email;
+    @Column(name = "company")
+    private String company;
 
-    public Student() {
+    public Employee() {
     }
 
-    public Student(String firstName, String lastName, String email) {
+    public Employee(String firstName, String lastName, String company) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+        this.company = company;
     }
 
     public String getFirstName() {
@@ -55,21 +47,22 @@ public class Student {
         this.lastName = lastName;
     }
 
-    public String getEmail() {
-        return email;
+    public String getCompany() {
+        return company;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "Employee{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
+                ", company='" + company + '\'' +
                 '}';
     }
 }
+
